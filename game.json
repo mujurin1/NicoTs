@@ -1,0 +1,236 @@
+{
+	"width": 1280,
+	"height": 720,
+	"fps": 30,
+	"main": "./script/main.js",
+	"moduleMainScripts": {
+		"@akashic-extension/akashic-hover-plugin": "node_modules/@akashic-extension/akashic-hover-plugin/lib/index.js",
+		"@akashic-extension/resolve-player-info": "node_modules/@akashic-extension/resolve-player-info/lib/index.js",
+		"@akashic-extension/akashic-label": "node_modules/@akashic-extension/akashic-label/lib/index.js"
+	},
+	"environment": {
+		"sandbox-runtime": "3",
+		"nicolive": {
+			"supportedModes": [
+				"multi_admission"
+			]
+		},
+		"external": {
+			"coeLimited": "0",
+			"atsumaru": "0"
+		}
+	},
+	"globalScripts": [
+		"node_modules/@akashic-extension/akashic-hover-plugin/lib/Converter.js",
+		"node_modules/@akashic-extension/akashic-hover-plugin/lib/HoverPlugin.js",
+		"node_modules/@akashic-extension/akashic-hover-plugin/lib/index.js",
+		"node_modules/@akashic-extension/resolve-player-info/lib/FallbackDialog.js",
+		"node_modules/@akashic-extension/resolve-player-info/lib/index.js",
+		"node_modules/@akashic-extension/akashic-label/lib/DefaultRubyParser.js",
+		"node_modules/@akashic-extension/akashic-label/lib/FragmentDrawInfo.js",
+		"node_modules/@akashic-extension/akashic-label/lib/Label.js",
+		"node_modules/@akashic-extension/akashic-label/lib/RubyParser.js",
+		"node_modules/@akashic-extension/akashic-label/lib/index.js"
+	],
+	"assets": {
+		"1.VSCode": {
+			"type": "script",
+			"path": "script/!DOC/1.VSCode.js",
+			"global": true
+		},
+		"2.TypeScript": {
+			"type": "script",
+			"path": "script/!DOC/2.TypeScript.js",
+			"global": true
+		},
+		"-.": {
+			"type": "script",
+			"path": "script/BASIS/-..js",
+			"global": true
+		},
+		"1.minimal": {
+			"type": "script",
+			"path": "script/BASIS/1.minimal.js",
+			"global": true
+		},
+		"10.update": {
+			"type": "script",
+			"path": "script/BASIS/10.update.js",
+			"global": true
+		},
+		"2.game": {
+			"type": "script",
+			"path": "script/BASIS/2.game.js",
+			"global": true
+		},
+		"3.entity": {
+			"type": "script",
+			"path": "script/BASIS/3.entity.js",
+			"global": true
+		},
+		"4.label": {
+			"type": "script",
+			"path": "script/BASIS/4.label.js",
+			"global": true
+		},
+		"5.scene": {
+			"type": "script",
+			"path": "script/BASIS/5.scene.js",
+			"global": true
+		},
+		"6.asset": {
+			"type": "script",
+			"path": "script/BASIS/6.asset.js",
+			"global": true
+		},
+		"7.sprite": {
+			"type": "script",
+			"path": "script/BASIS/7.sprite.js",
+			"global": true
+		},
+		"8.audio": {
+			"type": "script",
+			"path": "script/BASIS/8.audio.js",
+			"global": true
+		},
+		"9.event": {
+			"type": "script",
+			"path": "script/BASIS/9.event.js",
+			"global": true
+		},
+		"main": {
+			"type": "script",
+			"path": "script/main.js",
+			"global": true
+		},
+		"11.onJoin": {
+			"type": "script",
+			"path": "script/MULTI/11.onJoin.js",
+			"global": true
+		},
+		"12.global": {
+			"type": "script",
+			"path": "script/MULTI/12.global.js",
+			"global": true
+		},
+		"13.local": {
+			"type": "script",
+			"path": "script/MULTI/13.local.js",
+			"global": true
+		},
+		"14.custom_event": {
+			"type": "script",
+			"path": "script/MULTI/14.custom_event.js",
+			"global": true
+		},
+		"19.skip": {
+			"type": "script",
+			"path": "script/MULTI/19.skip.js",
+			"global": true
+		},
+		"99.username": {
+			"type": "script",
+			"path": "script/MULTI/99.username.js",
+			"global": true
+		},
+		"utils": {
+			"type": "script",
+			"path": "script/utils.js",
+			"global": true
+		},
+		"MusMus-BGM-103": {
+			"type": "audio",
+			"path": "audio/MusMus-BGM-103",
+			"systemId": "music",
+			"duration": 213473,
+			"hint": {
+				"extensions": [
+					".m4a",
+					".ogg"
+				]
+			}
+		},
+		"nc289355": {
+			"type": "audio",
+			"path": "audio/nc289355",
+			"systemId": "sound",
+			"duration": 10749,
+			"hint": {
+				"extensions": [
+					".m4a",
+					".ogg"
+				]
+			}
+		},
+		"se": {
+			"type": "audio",
+			"path": "audio/se",
+			"systemId": "sound",
+			"duration": 250,
+			"hint": {
+				"extensions": [
+					".aac",
+					".ogg"
+				]
+			}
+		},
+		"500x500": {
+			"type": "image",
+			"path": "image/500x500.png",
+			"width": 500,
+			"height": 500
+		},
+		"player": {
+			"type": "image",
+			"path": "image/player.png",
+			"width": 32,
+			"height": 32
+		},
+		"shot": {
+			"type": "image",
+			"path": "image/shot.png",
+			"width": 16,
+			"height": 16
+		},
+		"1.SAMPLE_minimal": {
+			"type": "script",
+			"path": "script/SAMPLE/1.SAMPLE_minimal.js",
+			"global": true
+		},
+		"19.SAMPLE_skip": {
+			"type": "script",
+			"path": "script/SAMPLE/19.SAMPLE_skip.js",
+			"global": true
+		},
+		"2.SAMPLE_entity": {
+			"type": "script",
+			"path": "script/SAMPLE/2.SAMPLE_entity.js",
+			"global": true
+		},
+		"3.SAMPLE_asset": {
+			"type": "script",
+			"path": "script/SAMPLE/3.SAMPLE_asset.js",
+			"global": true
+		},
+		"4.SAMPLE_sprite": {
+			"type": "script",
+			"path": "script/SAMPLE/4.SAMPLE_sprite.js",
+			"global": true
+		},
+		"5.SAMPLE_audio": {
+			"type": "script",
+			"path": "script/SAMPLE/5.SAMPLE_audio.js",
+			"global": true
+		},
+		"6.SAMPLE_event": {
+			"type": "script",
+			"path": "script/SAMPLE/6.SAMPLE_event.js",
+			"global": true
+		},
+		"12.global_event": {
+			"type": "script",
+			"path": "script/MULTI/12.global_event.js",
+			"global": true
+		}
+	}
+}
