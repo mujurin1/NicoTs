@@ -63,21 +63,6 @@
 			"path": "script/BASIS/2.game.js",
 			"global": true
 		},
-		"3.entity": {
-			"type": "script",
-			"path": "script/BASIS/3.entity.js",
-			"global": true
-		},
-		"4.label": {
-			"type": "script",
-			"path": "script/BASIS/4.label.js",
-			"global": true
-		},
-		"5.scene": {
-			"type": "script",
-			"path": "script/BASIS/5.scene.js",
-			"global": true
-		},
 		"6.asset": {
 			"type": "script",
 			"path": "script/BASIS/6.asset.js",
@@ -106,21 +91,6 @@
 		"11.onJoin": {
 			"type": "script",
 			"path": "script/MULTI/11.onJoin.js",
-			"global": true
-		},
-		"12.global": {
-			"type": "script",
-			"path": "script/MULTI/12.global.js",
-			"global": true
-		},
-		"13.local": {
-			"type": "script",
-			"path": "script/MULTI/13.local.js",
-			"global": true
-		},
-		"14.custom_event": {
-			"type": "script",
-			"path": "script/MULTI/14.custom_event.js",
 			"global": true
 		},
 		"19.skip": {
@@ -192,44 +162,24 @@
 			"width": 16,
 			"height": 16
 		},
-		"1.SAMPLE_minimal": {
-			"type": "script",
-			"path": "script/SAMPLE/1.SAMPLE_minimal.js",
-			"global": true
-		},
-		"19.SAMPLE_skip": {
-			"type": "script",
-			"path": "script/SAMPLE/19.SAMPLE_skip.js",
-			"global": true
-		},
-		"2.SAMPLE_entity": {
-			"type": "script",
-			"path": "script/SAMPLE/2.SAMPLE_entity.js",
-			"global": true
-		},
-		"3.SAMPLE_asset": {
-			"type": "script",
-			"path": "script/SAMPLE/3.SAMPLE_asset.js",
-			"global": true
-		},
-		"4.SAMPLE_sprite": {
-			"type": "script",
-			"path": "script/SAMPLE/4.SAMPLE_sprite.js",
-			"global": true
-		},
-		"5.SAMPLE_audio": {
-			"type": "script",
-			"path": "script/SAMPLE/5.SAMPLE_audio.js",
-			"global": true
-		},
-		"6.SAMPLE_event": {
-			"type": "script",
-			"path": "script/SAMPLE/6.SAMPLE_event.js",
-			"global": true
-		},
 		"12.global_event": {
 			"type": "script",
 			"path": "script/MULTI/12.global_event.js",
+			"global": true
+		},
+		"3.scene": {
+			"type": "script",
+			"path": "script/BASIS/3.scene.js",
+			"global": true
+		},
+		"4.entity": {
+			"type": "script",
+			"path": "script/BASIS/4.entity.js",
+			"global": true
+		},
+		"5.label": {
+			"type": "script",
+			"path": "script/BASIS/5.label.js",
 			"global": true
 		}
 	}

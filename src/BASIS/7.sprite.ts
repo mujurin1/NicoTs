@@ -1,16 +1,19 @@
-import { sceneCreateAndSetOnLoad } from "../utils";
-
 /**
  * 画像アセット
  */
 export function BASIS_sprite() {
-  sceneCreateAndSetOnLoad(loaded, { assetIds: ["500x500", "player"] });
+  const scene = new g.Scene({
+    game: g.game,
+    assetIds: ["500x500", "player"]
+  });
+  g.game.pushScene(scene);
+  scene.onLoad.add(loaded);
 
   function loaded(scene: g.Scene) {
     /* ==========【画像アセットの基本】==========
      * 画像アセットには jpeg, png 形式のファイルを使えます
      * 
-     * ※svg も使えますが説明しません。次のリンクを見てください
+     * ※svg も使えますが説明しません
      * Link: https://akashic-games.github.io/reverse-reference/v3/asset/svg-asset.html
      */
 
@@ -18,11 +21,12 @@ export function BASIS_sprite() {
     const spriteAsset = scene.asset.getImageById("500x500");
     const playerAsset = scene.asset.getImageById("player");
 
+
     /* ==========【スプライトエンティティ】==========
      * 画像を表示するにはスプライトエンティティ (g.Sprite) を使用します
      * 
-     * スプライトは g.E の生成時引数に加えて次の値が必須です
-     * ・使用する画像アセット - src
+     * スプライトは scene に加えて次の値が必須です
+     * ・src - 使用する画像アセット
      */
 
     // ★スプライトの生成
@@ -30,6 +34,7 @@ export function BASIS_sprite() {
       scene, parent: scene,
       src: spriteAsset,
     });
+
 
     /* ==========【画像の一部を表示する】==========
      * src で指定された画像アセットの一部分のみを表示することが出来ます
@@ -54,6 +59,7 @@ export function BASIS_sprite() {
       srcY: 100 * 1,
       width: 100, height: 100,
     });
+
 
     /* ==========【スプライトサイズの注意点】==========
      * 画像アセットの表示範囲を width/height で指定するとスプライトのサイズも変わります
@@ -114,6 +120,7 @@ export function BASIS_sprite() {
       player100x100Scale.x += 1;
       player100x100Scale.modified();
     });
+
 
     /* ==========【コラム】==========
      * 

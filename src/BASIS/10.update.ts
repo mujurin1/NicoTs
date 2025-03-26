@@ -1,10 +1,10 @@
-import { sceneCreateAndSetOnLoad } from "../utils";
-
 /**
  * 時間/時間経過イベント
  */
 export function BASIS_update() {
-  sceneCreateAndSetOnLoad(loaded);
+  const scene = new g.Scene({ game: g.game });
+  g.game.pushScene(scene);
+  scene.onLoad.add(loaded);
 
   function loaded(scene: g.Scene) {
     /* ==========【時間/時間経過イベントの基本】==========
@@ -29,6 +29,7 @@ export function BASIS_update() {
      * 
      * onUpdate は g.Game g.Scene g.E の全てが持っています
      */
+
     // ★１秒経過時にログを出力する (onUpdate 版)
     let timeCount = 0;
     scene.onUpdate.add(() => {
@@ -40,6 +41,7 @@ export function BASIS_update() {
       }
     });
 
+
     /* ==========【便利な関数】==========
      * 時間経過イベントを扱うための便利な関数があります
      * 一定時間後に処理を実行する   - setTimeout
@@ -48,6 +50,7 @@ export function BASIS_update() {
      * これらのイベントを解除するためには clearTimeout, clearInterval を使用します
      * また、これは今までのイベントとは違う書き方で使用します
      */
+
     // ★３秒後に１回だけログを出力する
     const timeoutId = scene.setTimeout(
       // 第１引数に実行する関数を指定

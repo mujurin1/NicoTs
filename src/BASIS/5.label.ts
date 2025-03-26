@@ -1,37 +1,36 @@
-import { sceneCreateAndSetOnLoad } from "../utils";
+import { createFont } from "../utils";
 
 /**
  * 文字を表示する (ラベルとフォント)
  */
 export function BASIS_label() {
-  sceneCreateAndSetOnLoad(loaded);
+  const scene = new g.Scene({ game: g.game });
+  g.game.pushScene(scene);
+  scene.onLoad.add(loaded);
 
   function loaded(scene: g.Scene) {
-    /* ==========【ラベルの作り方】==========
-     * 文字を表示するエンティティはラベル (g.Label) です
+    /* ==========【ラベル】==========
+     * Akashic Engine では文字を表示することも出来ます
+     * 文字を表示するエンティティは g.Label です
+     * これを特にラベルと呼びます
      * 
-     * 生成時には g.E で指定可能な値に加えて次の値を指定可能です
-     * (必須な値に * をつけています)
+     * ラベルでは scene の他に次の値が必須です
+     * ・text      - 文字
+     * ・font      - フォント
      * 
-     * ・text (*)  - 文字
-     * ・font (*)  - フォント
-     * ・textColor - 文字色
-     * 
-     * ※ g.Label にはこれ以外の指定可能な値もありますが今は省略しています
-     *    後でちゃんと説明します (TODO: 書いてね)
      * 
      * 【フォント】
      * g.Label を作るためには必要なフォントには２種類あります
-     * このチュートリアルでは DynamicFont のみを使用します
+     * このチュートリアルでは g.DynamicFont のみを使用します
      * 
-     * DynamicFont を作成するのに必須な値は次の３つです
-     * ・game       - g.game  (← これは BASIC/game で解説します)
+     * g.DynamicFont はエンティティではありません
+     * ラベルエンティティを作るのに必要なものです
+     * 
+     * g.DynamicFont を作る方法もエンティティと似ています
+     * 必須な値は次の３つです
+     * ・game       - g.game
      * ・fontFamily - フォントの種類
      * ・size       - フォントサイズ
-     * 
-     * フォントについて詳しく知りたい方は次のリンクをどうぞ
-     * DynamicFont - https://akashic-games.github.io/tutorial/v3/text.html
-     * BitmpFont   - https://akashic-games.github.io/tutorial/v3/bitmap-font.html
      */
 
     // ★まずは g.DynamicFont を作成します
@@ -40,17 +39,48 @@ export function BASIS_label() {
       fontFamily: "sans-serif",
       size: 40,
     });
+
     // ★作成したフォントを使ってラベルを作ります
     const label = new g.Label({
       scene, parent: scene,
       font,
       text: "文字を表示します",
-      touchable: true,
       x: 200,
-      maxWidth: 100,
     });
 
-    /* ==========【g.Label 以外の Label】==========
+
+    /* ==========【めんどくさいフォント】==========
+     * フォントを作るためのコードは解説には重要でないですが
+     * 多数の行を使って見た目が煩雑になるので
+     * utils.ts ファイルにある createFont を以降は使います
+     * 
+     * 例えば
+     * 
+     * createFont({ size: 20 })
+     * 
+     * とした場合は次のコードと同じ意味です
+     * 
+     * new g.DynamicFont({
+     *   game: g.game,
+     *   fontFamily: "sans-serif",
+     *   size: 20,
+     * })
+     */
+
+    const x = new g.Label({
+      scene, parent: scene,
+      font: createFont({ size: 20 }),
+      text: "createFont でフォントを作りました",
+      x: 200, y: 500,
+    });
+
+
+    /* ==========【コラム】==========
+     * 
+     * ※このコラムは特にややこしいので最初は読まずに次へ進んでください
+     * 
+     * 
+     * 【g.Label 以外の Label】
      * Akashic Engine 公式で提供されている akashic-label ライブラリがあります
      * これは標準で提供されている g.Label エンティティより高機能です
      * 
@@ -58,12 +88,13 @@ export function BASIS_label() {
      * 
      * 動作サンプル - https://akashic-contents.github.io/samples/basic/akashic-label.html
      * ドキュメント - https://github.com/akashic-games/akashic-label/blob/master/akashic-label.md
-     */
-
-    /* ==========【コラム】g.DynamicFont/g.Label の仕様==========
+     * 
+     * 
+     * 【g.DynamicFont/g.Label について】
      * g.DynamicFont と g.Label にはお互いに干渉する設定や
      * 特定の設定は別の設定によって効果が変わったり無意味になったりしてややこしい
      * ここではそれらの設定を列挙します
+     * 
      * 
      * 【文字の色】
      * g.DynamicFont の生成時に fontColor を指定すると g.Label の色を変更出来る
@@ -95,6 +126,12 @@ export function BASIS_label() {
      * デフォルトでは文字は左寄せ設定になっている
      * これを変更するには textAlign を指定するのだがこの値を変更する場合は
      * widthAutoAdjust:false でなければならない
+     * 
+     * 
+     * 【フォントについて】
+     * g.DynamicFont と g.BitmapFont について詳しく知りたい方は次のリンクをどうぞ
+     * DynamicFont - https://akashic-games.github.io/tutorial/v3/text.html
+     * BitmpFont   - https://akashic-games.github.io/tutorial/v3/bitmap-font.html
      */
   }
 }

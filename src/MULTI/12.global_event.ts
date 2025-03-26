@@ -1,10 +1,12 @@
-import { createFont, sceneCreateAndSetOnLoad } from "../utils";
+import { createFont } from "../utils";
 
 /**
  * プレイヤー間での操作の共有
  */
 export function MULTI_global_event() {
-  sceneCreateAndSetOnLoad(loaded);
+  const scene = new g.Scene({ game: g.game });
+  g.game.pushScene(scene);
+  scene.onLoad.add(loaded);
 
   function loaded(scene: g.Scene) {
     /* ==========【マルチプレイゲームとランキングゲームの違い】==========
@@ -145,7 +147,7 @@ export function MULTI_global_event() {
      * まずは一番興味のあるであろう「任意のイベント」をグローバルイベントとして共有する方法です
      * 
      * 実際に 3 を実装した次の例を見てください
-     * ※例の後に日本語で流れを解説をしています
+     * ※コード例の後に日本語で解説があります
      */
 
     // ★クリック可能なラベルを作成
@@ -181,18 +183,19 @@ export function MULTI_global_event() {
 
 
     /* ==========【任意のイベントの扱い方】==========
-     * 少し長い例になったので日本語で順序を説明します
+     * 少し長いコードなので日本語で説明します
      * 
      * 1. 自分の値を共有するためのラベルを作成
-     *     > shareCountLabel = new g.Label(...)
-     * 2. 「任意のイベント」を共有する関数を作成・登録
-     *     > shareCountLabel.onPointDown.add(...)
-     *     任意のイベントを作成
-     *        > new g.MessageEvent({ count })
-     *     作成したイベントを共有
-     *        >  g.game.raiseEvent(customEvent)
-     * 3. 「任意のイベント」を受け取った時の関数を作成・登録
-     *     > scene.onMessage.add(...)
+     *       shareCountLabel = new g.Label(...)
+     * 
+     * 2. 任意のイベントを共有する関数を作成・登録
+     *       shareCountLabel.onPointDown.add(...)
+     * 
+     *     任意のイベントを作成      new g.MessageEvent({ count })
+     *     作成したイベントを共有    g.game.raiseEvent(customEvent)
+     * 
+     * 3. 任意のイベントを受け取った時の関数を作成・登録
+     *       scene.onMessage.add(...)
      * 
      * 
      * 【2 任意のイベントを共有する】
@@ -217,8 +220,9 @@ export function MULTI_global_event() {
      * 引数では player にそれを共有したプレイヤーの情報
      *          data   に共有したときの内容が入っています
      * 
+     * 
      * onMessage が呼び出されるにはそのシーンが現在のシーンである必要があります
-     * 現在のシーンの onMessage に登録されている全ての関数が実行されます
+     * 現在のシーンの onMessage で登録されている全ての関数が実行されます
      */
 
 

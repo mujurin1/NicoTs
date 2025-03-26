@@ -1,5 +1,5 @@
 import { resolvePlayerInfo } from "@akashic-extension/resolve-player-info";
-import { createFont, sceneCreateAndSetOnLoad } from "../utils";
+import { createFont } from "../utils";
 
 /** 名前を取得済みのユーザーの一覧 */
 let users = new Map<string, { name: string; isRealName: boolean; }>();
@@ -17,7 +17,9 @@ function addUser(id: string, name: string, isRealName: boolean) {
  * ユーザー名の取得
  */
 export function MULTI_username() {
-  sceneCreateAndSetOnLoad(loaded);
+  const scene = new g.Scene({ game: g.game });
+  g.game.pushScene(scene);
+  scene.onLoad.add(loaded);
 
   function loaded(scene: g.Scene) {
     const font = createFont({ size: 20 });

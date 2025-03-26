@@ -1,13 +1,20 @@
 import { Label } from "@akashic-extension/akashic-label";
-import { createFont, sceneCreateAndSetOnLoad } from "../utils";
+import { createFont } from "../utils";
 
 /**
  * 音声アセット
  */
 export function BASIS_audio() {
+  // ★使用するアセットのID
   const BGM_ASSET_ID = "MusMus-BGM-103";
   const SE_ASSET_ID = "nc289355";
-  sceneCreateAndSetOnLoad(loaded, { assetIds: [BGM_ASSET_ID, SE_ASSET_ID] });
+
+  const scene = new g.Scene({
+    game: g.game,
+    assetIds: [BGM_ASSET_ID, SE_ASSET_ID]
+  });
+  g.game.pushScene(scene);
+  scene.onLoad.add(loaded);
 
   function loaded(scene: g.Scene) {
     /* ==========【音声アセットの基本】==========
@@ -46,14 +53,17 @@ export function BASIS_audio() {
     const bgm = scene.asset.getAudioById(BGM_ASSET_ID);
     const se = scene.asset.getAudioById(SE_ASSET_ID);
 
+
     /* ==========【音量の再生】==========
      * BGM/SE どちらも取得したアセットの play 関数を呼ぶことで音声を再生できます
      * 
      * play 関数を呼ぶと再生中の音声の操作を行う AudioPlayer が手に入ります
      */
+
     // ★音声の再生
     let bgmPlay = bgm.play();
     let sePlay = se.play();
+
 
     /* ==========【音量の調整方法】==========
      * BGM/SE の音量を変更する方法は２つあります
@@ -84,6 +94,7 @@ export function BASIS_audio() {
     // 個別の音量: 0.2
     // なので最終的な音量は 0.5 * 0.2 = 0.1 になります
 
+
     /* ==========【音声を止める】==========
      * 音声を止める方法も全体/個別の２つあります
      * 
@@ -94,6 +105,7 @@ export function BASIS_audio() {
      * 個別の停止は play 関数を実行して手に入る AudioPlayer の
      * AudioPlayer.stop 関数を使用します
      */
+
 
     // ★停止ボタンの作成
     const stop = new g.Label({
@@ -119,6 +131,7 @@ export function BASIS_audio() {
      * 同じ音声を再生する場合は最初と同様に AudioAsset を play する必要があります
      */
 
+
     // ★再生ボタンの作成
     const play = new g.Label({
       scene, parent: scene,
@@ -137,10 +150,10 @@ export function BASIS_audio() {
       sePlay = se.play();
     });
 
+
     // ★クレジット表示
-    // Label は g.Label とは違うものです。公式の akashic-label ライブラリで提供されているエンティティです
-    // https://akashic-games.github.io/reverse-reference/v3/text/multiline.html
-    // ※このチュートリアルでも解説します (予定?)
+    // ※Label は g.Label とは違うものです。公式の akashic-label ライブラリで提供されているエンティティです
+    //   https://akashic-games.github.io/reverse-reference/v3/text/multiline.html
     const credit = new Label({
       scene, parent: scene,
       text: `
@@ -156,6 +169,7 @@ SE: 【効果音】学校のチャイム2    https://commons.nicovideo.jp/works/
       x: 5,
     });
     credit.y = scene.game.height - credit.height - 5;
+
 
     /* ==========【コラム】音声操作の補足==========
      * 【出来そうな気がするけど、多分不可能な機能】

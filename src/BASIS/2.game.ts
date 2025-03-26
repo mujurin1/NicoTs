@@ -7,10 +7,16 @@ export function BASIS_game() {
   g.game.pushScene(scene);
   scene.onLoad.add(loaded);
 
-  function loaded() {
+
+  function loaded(scene: g.Scene) {
     /* ==========【g.game】==========
-     * g.game はたまに必要になるやつです
-     * ゲームの全体的な情報を取ったり色々する時に使います
+     * Akashic Engien でたまに使う g.game というものがあります
+     * これはゲームの全体的な情報を取ったり色々する時に使います
+     * 
+     * g.game はゲームの全体的な情報の確認や、
+     * 色んな場面で使います
+     * 
+     * g.game の存在だけ知っておいてください
      * 
      * g.game で出来ること
      * ・プレイヤーの情報を取得する
@@ -20,9 +26,6 @@ export function BASIS_game() {
      * ・カスタムイベントを発生させる (マルチプレイのみ)
      * ・ゲームがスキップ中か調べる (マルチプレイのみ)
      * ・スナップショットを保存する (マルチプレイのみ) (高度な機能)
-     * 
-     * g.game はたまに使うものなんだな
-     * 程度に思っておいてください
      * 
      * 
      * 詳しくは公式のAPIドキュメント参照

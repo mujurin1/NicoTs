@@ -1,10 +1,12 @@
-import { createFont, sceneCreateAndSetOnLoad } from "../utils";
+import { createFont } from "../utils";
 
 /**
  * イベントという仕組み
  */
 export function BASIS_event() {
-  sceneCreateAndSetOnLoad(loaded);
+  const scene = new g.Scene({ game: g.game });
+  g.game.pushScene(scene);
+  scene.onLoad.add(loaded);
 
   function loaded(scene: g.Scene) {
     /* ==========【イベントの基本】==========
@@ -24,7 +26,7 @@ export function BASIS_event() {
      * | g.Scene            | onMessage           | 開発者の作成する任意のイベント         |
      * 
      * ※ 「__」という表記はそれに対応するものが複数ある場合に使っています
-     *          こう表記されている場合、対応する全てのものが説明の対象です
+     *          これで表記されている場合、対応する全てのものが説明の対象です
      * 
      * この一覧にあるイベントは全てこのチュートリアルで説明します
      * onPoint__ 以外のイベントは別のファイルで解説します
@@ -43,7 +45,7 @@ export function BASIS_event() {
      * 複数登録されている場合は登録順に呼び出されます
      */
 
-    // ★クリックするとログを出力する矩形を
+    // ★クリックするとログを出力する矩形を作成
     const whiteRect = new g.FilledRect({
       scene, parent: scene,
       cssColor: "white",
@@ -54,30 +56,34 @@ export function BASIS_event() {
     whiteRect.onPointDown.add(showLog);
 
     function showLog(e: g.PointDownEvent) {
-      // ★onPointDown イベントは引数として g.PointDownEvent を受け取ります
+      // ★PointDown イベントは引数として g.PointDownEvent を受け取ります
       console.log(`クリック: X:${e.point.x}  Y:${e.point.y}`);
-      // ログ出力はブラウザの Devtools > Console を確認してください
     }
+
 
     /* ==========【イベントの解除】==========
      * 登録した関数がもう実行されて欲しくない場合に解除することが出来ます
      * 
      * on__.remove 関数を使用します
      */
+
     // ★if (true) に変更するとクリックしてもログ出力されなくなります
     if (false) {
       whiteRect.onPointDown.remove(showLog);
     }
+
 
     /* ==========【１度だけ実行する】==========
      * イベントが発生したら１回だけ実行してほしい場合があります
      * その場合は on__.addOnce 関数を使用します
      * これで登録した関数は１度呼び出されると自動で解除されます
      */
+
     // ★最初のクリック時のみログを出力する
     whiteRect.onPointDown.addOnce(() => {
       console.log("クリック！！！！！ (このログは１回しか出力されません)");
     });
+
 
     /* ==========【クリックイベントの種類】==========
      * クリックイベントには次の３種類があります
@@ -138,6 +144,7 @@ export function BASIS_event() {
     });
     logClearText.onPointDown.add(() => console.clear());
 
+
     /* ==========【シーンのクリックイベント】==========
      * クリックイベントはシーンにも存在します
      * 種類は同じですがそれぞれイベントの後ろに Capture が付きます
@@ -167,7 +174,15 @@ export function BASIS_event() {
       });
     }
 
-    // TODO: ここから下の説明、読みづらい！
+
+
+
+
+
+
+    // TODO: ここから下は読みやすい調整をしてないので読みづらいです
+    //       内容も難しいので読まないでください
+
 
     /* ==========【コラム】関数の書き方について==========
      * イベントの登録で２通りの書き方をしています

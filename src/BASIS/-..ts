@@ -1,10 +1,10 @@
-import { sceneCreateAndSetOnLoad } from "../utils";
-
 /**
  * 
  */
 export function BASIS_() {
-  sceneCreateAndSetOnLoad(loaded);
+  const scene = new g.Scene({ game: g.game });
+  g.game.pushScene(scene);
+  scene.onLoad.add(loaded);
 
   function loaded(scene: g.Scene) {
 

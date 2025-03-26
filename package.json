@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev:watch": "npm run build:scan && @concurrently \"tsc -w\" \"akashic serve -p 3300 -s nicolive -w -B\"",
+    "dev": "npm run build:scan && @concurrently \"tsc -w\" \"akashic serve -p 3300 -s nicolive -w -B\"",
     "scan": "akashic scan asset",
     "export": "npm run build:scan && akashic export zip -f -o ./game.zip --nicolive --minify",
     "build:scan": "rimraf ./script && tsc && akashic-cli-scan asset script",
