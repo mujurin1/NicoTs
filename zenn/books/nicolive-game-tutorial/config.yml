@@ -1,0 +1,24 @@
+# Book config for Zenn
+# See: https://zenn.dev/zenn/articles/book-guide
+
+title: "ニコ生ゲーム入門"
+summary: "README と BASIC、MULTI フォルダの内容をまとめたチュートリアル"
+topics: ["niconico", "akashic"]
+price: 0
+published: false
+chapters:
+  - readme
+  - 01-minimal
+  - 02-game
+  - 03-scene
+  - 04-entity
+  - 05-label
+  - 06-asset
+  - 07-sprite
+  - 08-audio
+  - 09-event
+  - 10-update
+  - 11-onJoin
+  - 12-global_event
+  - 19-skip
+  - 99-username
