@@ -8,15 +8,15 @@ price: 0
 published: false
 chapters:
   - readme
-  - 01-minimal
-  - 02-game
-  - 03-scene
-  - 04-entity
-  - 05-label
-  - 06-asset
-  - 07-sprite
-  - 08-audio
-  - 09-event
+  - 1-minimal
+  - 2-game
+  - 3-scene
+  - 4-entity
+  - 5-label
+  - 6-asset
+  - 7-sprite
+  - 8-audio
+  - 9-event
   - 10-update
   - 11-onJoin
   - 12-global_event
